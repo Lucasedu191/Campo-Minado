@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.DynamicTest;
 
+import excessao.ExplosaoException;
+
 public class Campo {
 	private final int linha;
 	private final int coluna;
@@ -51,7 +53,7 @@ public class Campo {
 			aberto = true;
 			
 			if(minado) {
-				throw new ExplosaoException();
+				 new ExplosaoException();
 			}
 			if(vizinhancaSegura()) {
 				vizinhos.forEach(v -> v.abrir());
@@ -75,7 +77,9 @@ public class Campo {
 	public boolean isMarcado() {
 		return marcado;
 	}
-	
+	void setAberto(boolean aberto) {
+		this.aberto = aberto;
+	}
 	public boolean isAberto() {
 		return aberto;
 	}
